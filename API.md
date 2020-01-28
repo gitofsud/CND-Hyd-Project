@@ -4,15 +4,15 @@
 
 ### Login
 
-        POST /api/auth
+        POST /api/v1/auth
 
 ### Logout
 
-        GET /api/logout
+        GET /api/v1/logout
 
 ### Registration
 
-        POST /api/user
+        POST /api/v1/user
 
 ## Expense
 
@@ -20,36 +20,28 @@
 
 1. Add expense
         
-        POST /add/<user_id>
-
-2. Add limit to expense
-
-        POST /budget/<user_id>
+        POST /api/v1/expense
 
 ### Read
 
 1. View all expenses and graphs
 
-        GET /view/<user_id>
+        GET /api/v1/expense
 
 2. View individual expense
 
-        GET /view/<user_id>/<expense_id>
-
-3. View expenses according to it's category
-
-        GET /category/<user_id>
+        GET /api/v1/expense/<expense_id>
 
 ### Update
 
 1. Edit expense
 
-        POST /edit/<user_id>/<expense_id>
+        PUT /api/v1/expense/<expense_id>
 
 
 ### Delete
 
 1. Delete expense
 
-        PUT /delete/<user_id>/<expense_id>
+        DELETE /api/v1/expense/<expense_id>
 
