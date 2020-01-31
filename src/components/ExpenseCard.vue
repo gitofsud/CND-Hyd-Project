@@ -1,6 +1,6 @@
 <template>
   <div>
-      <b-card class="mb-4 rounded hoverable" >
+      <b-card class="mb-4 rounded hoverable" @click="$router.push({name: 'details', params: { id: id}})">
           <b-row>
               <b-col>
                 <div id="amount">

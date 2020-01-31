@@ -2,7 +2,16 @@
   <div class="home">
     <Navbar/>
     <b-row>
-      
+      <b-col>
+        <div class="mb-3">
+            <b-button variant="primary" @click="$router.push('/')">🏡 <strong>Home</strong></b-button>
+            <b-button variant="light" class="mx-3" @click="$router.push('analytics')">📈 <strong>Analytics</strong></b-button>
+            <b-button variant="light" @click="getExpenses()">
+              <i class="fas fa-sync-alt" v-if="!loading"></i>
+              <b-spinner small label="Spinning" v-if="loading"></b-spinner>
+            </b-button>
+        </div>
+      </b-col>
     </b-row>
     <b-row>
       <b-col cols="12" md="8">
@@ -48,6 +57,10 @@ export default {
     // Notifications,
     ExpenseCard,
   },
+  // computed() {
+  //   this.sum = localStorage.getItem('totalExpense')
+  // },
+
   mounted(){
     if(localStorage.getItem('Items')){
       try {
@@ -67,12 +80,14 @@ export default {
   },
   data() {
     return {
+      loading: false,
       Items:'',
       sum: 0,
     }
   },
   methods: {
     async getExpenses() {
+      this.loading = true
       console.log("api called")
       var uri = "https://0xq3l9bey8.execute-api.us-east-2.amazonaws.com/dev/expense"
         const config = {
@@ -86,7 +101,8 @@ export default {
         const response = await axios(config);
         this.Items = response.data;
         this.saveItems()
-        console.log(response.data);
+        this.calculateTotalExpense()
+        this.loading = false;
       } catch (error) {
         console.log(error);
       }  
@@ -98,7 +114,8 @@ export default {
     },
 
     calculateTotalExpense(){
-      console.log("called");
+      localStorage.setItem('totalExpense', 0);
+      this.sum = 0;
       for(var item in this.Items ) {
         this.sum = this.sum + Number(this.Items[item].ExpenseAmt)
         localStorage.setItem('totalExpense', this.sum);
