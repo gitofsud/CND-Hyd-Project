@@ -38,6 +38,7 @@
         <!-- <Notifications/> -->
       </b-col>
     </b-row>
+    <Footer/>
   </div>
 </template>
 
@@ -48,6 +49,7 @@ import Navbar from '../components/Navbar.vue'
 import AddExpense from '../components/AddExpense.vue'
 // import Notifications from '../components/Notifications.vue'
 import ExpenseCard from '../components/ExpenseCard.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
   name: 'home',
@@ -56,6 +58,7 @@ export default {
     AddExpense,
     // Notifications,
     ExpenseCard,
+    Footer
   },
   // computed() {
   //   this.sum = localStorage.getItem('totalExpense')
