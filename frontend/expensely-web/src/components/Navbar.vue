@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="logo">Expense<span style="color: #007BFF; font-weight: bold">ly.</span></div>
+        
         <hr>
     </div>
 </template>
