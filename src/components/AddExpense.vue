@@ -70,7 +70,7 @@ export default {
             selected: null,
             options: [
             { value: null, text: 'Please select a category' },
-            { value: 'Bill', text: 'Bill' },
+            { value: 'Bills', text: 'Bills' },
             { value: 'Entertainment', text: 'Entertainment' },
             { value: 'Food', text: 'Food' },
             { value: 'Travel', text: 'Travel' },
